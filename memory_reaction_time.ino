@@ -8,11 +8,13 @@
 # define CHARS_AND_NUMBERS 2
 
 // MODIFY THESE BETWEEN TESTS ===================
-const int WORKING_SET = 5;
-const int COMPARE_SET = 10;
-const int STIMULI_LENGTH = 3;
-const int TEST_TYPE = CHARS_AND_NUMBERS;
+    // Do 5 tests for every STIMULI_LENGTH, TEST_TYPE combination
+    const int STIMULI_LENGTH = 1; // 1, 4, 7, 10
+    const int TEST_TYPE = CHARS; // CHARS, NUMBERS, CHARS_AND_NUMBERS
 // ==============================================
+
+const int WORKING_SET = 4;
+const int COMPARE_SET = 10;
 
 // CONSTANTS
 const int RS = 12, EN = 11, D4 = 5, D5 = 4, D6 = 3, D7 = 2;
