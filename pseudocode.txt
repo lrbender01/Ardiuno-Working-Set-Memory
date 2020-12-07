@@ -1,0 +1,55 @@
+setup
+{
+    Begin serial transmission
+    Set up LCD display
+    Set up buttons
+    Seed random() with analog noise
+    Remind subject to open Serial Monitor
+}
+
+loop
+{
+    Populate memorization and comparison sets (fill_set)
+        List length, stimulus length, and stimulus type dictated by constant variables
+    Pick random number of entries to match (between 40% and 60%)
+    Fill random matches in comparison set (fill_random)
+    Show all stimuli to subject one at a time
+        Wait for confirmation before showing next each entry
+    Wait for participant to signal they are ready to begin testing
+    For each comparison stimulus:
+        Check if stimulus matches
+        Delay random amount of time (0.5s to 2s)
+        Take start time
+        Show it to the subject
+        Wait for response
+        Take end time
+        Print stimulus, response time, and correctness
+    Clear sets (clear_set)
+    Wait for user to confirm they are ready for another test
+    Repeat loop indefinitely
+}
+
+fill_set
+{
+    For each string (character array):
+        For each character:
+            Based on test type generate a random character (ASCII character set)
+            Assign this random character into the character array
+        Add a terminating "zero" byte to the array for printing
+}
+
+clear_set
+{
+    For each string (character array):
+        For each character:
+            Set it to the terminating "zero" byte
+}
+
+fill_random
+{
+    Keep track of which elements have been replaced already
+    For the number of elements to be replaced:
+        Pick a random entry in the comparison set that does not already match the memorization set
+        Change it to equal a random entry in the memorization set
+        Note this element so it is not overwritten
+}
